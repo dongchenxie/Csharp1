@@ -11,14 +11,36 @@ namespace Csharp1
 
 
         {
-           // dongchenModel dc = new dongchenModel();
-           // Console.WriteLine(dc.num());
+          var arr = new[]
+                {
+                   @" ▄████▄   ▄▄▄       ██▓     ▄████▄   █    ██  ██▓    ▄▄▄     ▄▄▄█████▓ ▒█████   ██▀███ ",
+                   @"▒██▀ ▀█  ▒████▄    ▓██▒    ▒██▀ ▀█   ██  ▓██▒▓██▒   ▒████▄   ▓  ██▒ ▓▒▒██▒  ██▒▓██ ▒ ██▒",
+                   @"▒▓█    ▄ ▒██  ▀█▄  ▒██░    ▒▓█    ▄ ▓██  ▒██░▒██░   ▒██  ▀█▄ ▒ ▓██░ ▒░▒██░  ██▒▓██ ░▄█ ▒",
+                   @"▒▓▓▄ ▄██▒░██▄▄▄▄██ ▒██░    ▒▓▓▄ ▄██▒▓▓█  ░██░▒██░   ░██▄▄▄▄██░ ▓██▓ ░ ▒██   ██░▒██▀▀█▄  ",
+                   @"▒ ▓███▀ ░ ▓█   ▓██▒░██████▒▒ ▓███▀ ░▒▒█████▓ ░██████▒▓█   ▓██▒ ▒██▒ ░ ░ ████▓▒░░██▓ ▒██▒",
+                   @"░ ░▒ ▒  ░ ▒▒   ▓▒█░░ ▒░▓  ░░ ░▒ ▒  ░░▒▓▒ ▒ ▒ ░ ▒░▓  ░▒▒   ▓▒█░ ▒ ░░   ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░",
+                   @"  ░  ▒     ▒   ▒▒ ░░ ░ ▒  ░  ░  ▒   ░░▒░ ░ ░ ░ ░ ▒  ░ ▒   ▒▒ ░   ░      ░ ▒ ▒░   ░▒ ░ ▒░",
+                   @"░          ░   ▒     ░ ░   ░         ░░░ ░ ░   ░ ░    ░   ▒    ░      ░ ░ ░ ▒    ░░   ░ ",
+                   @"░ ░            ░  ░    ░  ░░ ░         ░         ░  ░     ░  ░            ░ ░     ░     ",
+                   @"░                          ░                                                            "
+
+
+               };
+                foreach (string line in arr)
+                    Console.WriteLine(line);
             while (true)
             {
-                Console.WriteLine("Please input your math function (+,-,*,/)");
+                
+
+                Console.WriteLine("Please input your math function (+,-,*,/,%), input \"Exit\" to quit");
                 var mathFunction = Console.ReadLine();
-                if (!Regex.IsMatch(mathFunction, @"^[\+\-\*\/]{1}$"))
+                if (!Regex.IsMatch(mathFunction, @"^[\+\-\*\/\%]$"))
                 {
+                    if (mathFunction == "Exit")
+                    {
+                        Console.WriteLine("Exit program");
+                        break;
+                    }
                     Console.WriteLine("Please input a valid math function");
                     continue;
 
@@ -26,14 +48,14 @@ namespace Csharp1
                 Console.WriteLine("Please input your first number");
               
                 var firstNumber = Console.ReadLine();
-                if (!Regex.IsMatch(firstNumber, @"^-?[0-9][0-9,\.]+$"))
+                if (!Regex.IsMatch(firstNumber, @"^\-?\d*\.?\d+$"))
                 {
                     Console.WriteLine("Please input a valid number");
                     continue;
                 }
                 Console.WriteLine("Please input your second number");
                 var secondNumber = Console.ReadLine();
-                if (!Regex.IsMatch(secondNumber, @"^-?[0-9][0-9,\.]+$"))
+                if (!Regex.IsMatch(secondNumber, @"^\-?\d*\.?\d+$"))
                 {
                     Console.WriteLine("Please input a valid number");
                     continue;
@@ -52,10 +74,6 @@ namespace Csharp1
                 Console.WriteLine(result);
             }
           
-        }
-        static int get(int a,int b)
-        {
-            return 1;
         }
     }
 }
