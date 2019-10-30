@@ -1,5 +1,6 @@
 ﻿using System;
 using DynamicExpresso;
+using System.Text.RegularExpressions;
 
 
 namespace Csharp1
@@ -8,18 +9,49 @@ namespace Csharp1
     {
         static void Main(string[] args)
         {
-            String message = "Hello World";
-            double implicitDouble = 123.45;
-            double explicitDouble = 123.45d;
-            float explicitFloat = 123.45f;
-            decimal explicitDecimal = 123.45m;
-            uint unsignedInt = 100u;
-            long longInteger = 100l;
-            ulong unsignedLongInteger = 100ul;
-            bool b = false;
-            var interpreter = new Interpreter();
-            var result = interpreter.Eval("8 /( 2 + 2)");
-            Console.WriteLine(result);
+            while (true)
+            {
+                Console.WriteLine("Please input your math function (+,-,*,/)");
+                var mathFunction = Console.ReadLine();
+                if (!Regex.IsMatch(mathFunction, @"^[\+\-\*\/]{1}$"))
+                {
+                    Console.WriteLine("Please input a valid math function");
+                    continue;
+
+                }
+                Console.WriteLine("Please input your first number");
+              
+                var firstNumber = Console.ReadLine();
+                if (!Regex.IsMatch(firstNumber, @"^-?[0-9][0-9,\.]+$"))
+                {
+                    Console.WriteLine("Please input a valid number");
+                    continue;
+                }
+                Console.WriteLine("Please input your second number");
+                var secondNumber = Console.ReadLine();
+                if (!Regex.IsMatch(secondNumber, @"^-?[0-9][0-9,\.]+$"))
+                {
+                    Console.WriteLine("Please input a valid number");
+                    continue;
+                }
+                var result = "";
+                Interpreter interpreter = new Interpreter();
+                try
+                {
+                    result = "Your answer is: " + interpreter.Eval(firstNumber+ mathFunction+ secondNumber);
+                }
+                catch (Exception e)
+                {
+                    result = "Oops, something wrong with your input: \n";
+                }
+
+                Console.WriteLine(result);
+            }
+          
+        }
+        static int get(int a,int b)
+        {
+            return 1;
         }
     }
 }
