@@ -8,7 +8,11 @@ namespace Csharp1
     class Program
     {
         static void Main(string[] args)
+
+
         {
+           // dongchenModel dc = new dongchenModel();
+           // Console.WriteLine(dc.num());
             while (true)
             {
                 Console.WriteLine("Please input your math function (+,-,*,/)");
