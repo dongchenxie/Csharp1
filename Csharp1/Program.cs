@@ -66,9 +66,13 @@ namespace Csharp1
                 {
                     result = "Your answer is: " + interpreter.Eval(firstNumber+ mathFunction+ secondNumber);
                 }
+                catch(DivideByZeroException e)
+                {
+                    result = "Oops, you are trying to divide by zero";
+                }
                 catch (Exception e)
                 {
-                    result = "Oops, something wrong with your input: \n";
+                    result = "Oops, something wrong with your input, Here is your error message: "+e.Message;
                 }
 
                 Console.WriteLine(result);
